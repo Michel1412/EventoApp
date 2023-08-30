@@ -1,16 +1,19 @@
 package com.eventApp.eventApp.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.ListIndexBase;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Evento implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @OneToMany
+    private List<Convidado> convidado;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
